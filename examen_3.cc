@@ -39,12 +39,12 @@ int backtracking (string a, string b, int puntuacio, int i, int j) {
 	else if (j == b.size()) r = puntuacio + 10*(a.size()-i);
 	else if (a[i] == b[j]) r = backtracking(a, b, puntuacio, i+1, j+1);
 	else {
-		//ens petem lletra de la paraula a
+		//eliminem lletra de la paraula a
 		r = backtracking(a, b, puntuacio + 10, i+1, j);
-		//ens petem lletra de la paraula b
+		//eliminem lletra de la paraula b
 		int aux = backtracking(a, b, puntuacio + 10, i, j+1);
 		if (r > aux) r = aux;
-		//calculem diferencia de lletre
+		//calculem diferencia de lletra
 		aux = backtracking(a, b, puntuacio + dif(a[i], b[j]), i+1, j+1);
 		if (r > aux) r = aux;
 	}
